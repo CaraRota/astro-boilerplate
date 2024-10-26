@@ -1,0 +1,26 @@
+---
+import { app } from '../firebase/server'
+import { getAuth } from 'firebase-admin/auth'
+import Layout from '../layouts/Layout.astro'
+import Login from '../components/sessions/Login'
+import { SESSION_COOKIE } from '../constants'
+
+/* Check if the user is authenticated */
+const auth = getAuth(app)
+let user = null
+
+if (Astro.cookies.has(SESSION_COOKIE)) {
+  const sessionCookie = Astro.cookies.get(SESSION_COOKIE)?.value
+  try {
+    const decodedCookie = await auth.verifySessionCookie(sessionCookie || '')
+    user = await auth.getUser(decodedCookie.uid)
+  } catch (error) {
+    console.error('Failed to verify session or get user:', error)
+    // Handle error as appropriate for your application
+  }
+}
+---
+
+<Layout title='Inicio de Sesión'>
+  <Login client:load />
+</Layout>

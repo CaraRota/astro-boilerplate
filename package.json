@@ -7,10 +7,25 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "npm run lint:prettier && npm run lint:eslint",
+    "lint:prettier": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro,cjs,json}\"",
+    "lint:eslint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
+    "lint:check": "npm run lint:check-prettier && npm run lint:check-eslint",
+    "lint:check-prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx,astro,cjs,json}\"",
+    "lint:check-eslint": "eslint \"src/**/*.{js,ts,jsx,tsx,astro}\""
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,md,mdx,astro,cjs,json}": [
+      "npm run lint:prettier"
+    ],
+    "src/**/*.{js,ts,jsx,tsx,astro}": [
+      "npm run lint:eslint"
+    ]
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/node": "^8.3.4",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.2",
     "@types/react": "^18.3.12",
@@ -20,11 +35,19 @@
     "firebase-admin": "^12.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "toastify-js": "^1.12.0",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14"
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^1.1.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "prettier-config-standard": "^7.0.0",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.14"
   }
 }

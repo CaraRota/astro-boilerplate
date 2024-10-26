@@ -1,21 +1,21 @@
 ---
-import Login from "../components/sessions/Login";
-import Layout from "../layouts/Layout.astro";
-import { checkUserAuth } from "./api/auth/checkUser";
+import Login from '../components/sessions/Login'
+import Layout from '../layouts/Layout.astro'
+import { checkUserAuth } from './api/auth/checkUser'
 
-// let user;
+let user
 
-// try {
-//     user = await checkUserAuth(Astro.cookies);
-// } catch (error) {
-//     console.error(error);
-//     return Astro.redirect("/signin");
-// }
+try {
+  user = await checkUserAuth(Astro.cookies)
+} catch (error) {
+  console.error(error)
+  return Astro.redirect('/signin')
+}
 ---
 
-<Layout title='Agua Don Pocho'>
-    <main class='flex flex-col p-5'>
-        <!-- <Login client:load /> -->
-    </main>
-    <slot />
+<Layout title='Your project title'>
+  <main class='flex flex-col p-5'>
+    <Login client:load />
+  </main>
+  <slot />
 </Layout>
