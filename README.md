@@ -1,13 +1,15 @@
 # Project Setup Guide
 
+## Description
+
+This project is a boilerplate setup that includes Astro, TailwindCSS, Firebase, React, and several other tools to help you get started quickly. It features a basic login view with login logic, Toastify for alerts, middleware to handle errors within the login process, and checks if the user is authenticated. Additionally, it uses Astro Node for creating endpoints, making it a comprehensive starting point for your web application.
+
 ![Astro](https://img.shields.io/badge/Astro-333333?style=for-the-badge&logo=astro&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Lint](https://img.shields.io/badge/Lint-E34F26?style=for-the-badge&logo=eslint&logoColor=white)
 ![Toastify](https://img.shields.io/badge/Toastify-FF6F61?style=for-the-badge&logo=toastify&logoColor=white)
-
-Welcome to this Astro boilerplate setup guide! Follow the steps below to configure your environment and get started.
 
 ## 1. Environment Variables
 
