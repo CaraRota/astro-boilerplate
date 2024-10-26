@@ -1,16 +1,21 @@
 ---
+import Login from "../components/sessions/Login";
+import Layout from "../layouts/Layout.astro";
+import { checkUserAuth } from "./api/auth/checkUser";
 
+// let user;
+
+// try {
+//     user = await checkUserAuth(Astro.cookies);
+// } catch (error) {
+//     console.error(error);
+//     return Astro.redirect("/signin");
+// }
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title='Agua Don Pocho'>
+    <main class='flex flex-col p-5'>
+        <!-- <Login client:load /> -->
+    </main>
+    <slot />
+</Layout>
